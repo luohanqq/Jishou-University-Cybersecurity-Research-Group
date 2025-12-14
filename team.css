@@ -25,24 +25,27 @@ html {
 
 /* 页眉样式 */
 header {
-    background: #647ffe;
-    color: #ffffff;
-    padding: 20px 0;
-    text-align: center;
-    height: 150px;
+    display: flex;
+    align-items: center;      /* 垂直居中 */
+    padding: 20px 40px;
+    background-color: #6a86f5; /* 你现在的蓝色 */
 }
+
 
 .header-img {
-    height: 40px;
+    width: 120px;       /* 左上角 LOGO 不宜太大 */
+    height: auto;
+    margin-right: 30px; /* 与标题拉开距离 */
 }
 
+
 .header-title {
-    margin: 0;
-    padding-top: 6px;
-    padding-bottom: 6px;
     font-size: 36px;
-    color: black;
+    font-weight: 700;
+    color: #000;
+    text-align: left;
 }
+
 
 /* 导航样式 */
 .header-nav {
