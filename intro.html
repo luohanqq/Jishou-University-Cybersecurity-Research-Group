@@ -1,40 +1,164 @@
-<section class="intro">
-    <h2 id="synopsis">课题组简介</h2>
+<!DOCTYPE html>
+<html lang="zh-CN">
 
-    <section class="sy_1">
-        <h3 class="sy_1_title">研究领域</h3>
-        <p class="sy_1_info">
-            　　本课题组面向国家网络空间安全与数据安全战略需求，围绕“安全可信、攻防对抗、数据保护与治理”开展研究与人才培养。
-            我们关注复杂网络与信息系统的风险识别、攻击检测与响应、漏洞分析与安全加固，以及隐私保护与安全评估等关键问题，
-            强调理论方法与工程实践结合，为真实应用场景提供可落地的安全解决方案。
-        </p>
-        <p class="sy_1_info">
-            　　Cybersecurity Research Group focuses on building secure and trustworthy systems in real-world scenarios.
-            Our work spans vulnerability analysis and security hardening, intrusion detection and incident response,
-            malware analysis and digital forensics, privacy protection, and security evaluation of emerging systems.
-        </p>
-        <p class="sy_1_info">
-            　　课题组鼓励学生在实践中提升能力：开展论文研读与复现、搭建攻防与检测实验环境、进行安全评估与工具开发，
-            并积极参与学术交流与网络安全竞赛（CTF/攻防演练等），形成“研究—实践—产出”的闭环。
-        </p>
-    </section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课题组简介 - 吉首大学网络空间安全课题组</title>
+    <link rel="stylesheet" href="team.css">
+</head>
 
-    <section class="sy_1">
-        <h3 class="sy_1_title">团队成员</h3>
+<body>
+    <!-- 顶部欢迎栏 -->
+    <div class="topper">
+        <div class="top">
+            <div class="container">
+                <div class="welcome" data-i18n="welcome">欢迎光临吉首大学网络空间安全课题组网站</div>
+                <div class="top_tel">
+                    <span data-i18n="language">语言选择：</span>
+                    <a href="#" id="langZh" class="lang-switch active">中文</a>&nbsp;|&nbsp;
+                    <a href="#" id="langEn" class="lang-switch">English</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 页眉导航 -->
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="png/image.png" alt="课题组LOGO">
+                        <span class="header-title" data-i18n="site-title">吉首大学网络空间安全课题组</span>
+                    </a>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav-home">首页</a></li>
+                        <li class="on"><a href="intro.html" data-i18n="nav-intro">课题组简介</a></li>
+                        <li><a href="research.html" data-i18n="nav-research">科研进展</a></li>
+                        <li><a href="team.html" data-i18n="nav-team">成员介绍</a></li>
+                        <li><a href="about.html" data-i18n="nav-about">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="search_btnn" id="searchBtn"></div>
+                <div class="model-navbtn" id="navBtn"></div>
+            </div>
+            <div class="search_area" id="searchArea">
+                <div class="container">
+                    <div class="search_close" id="searchClose">×</div>
+                    <div class="search_form">
+                        <form method="get" action="#">
+                            <input class="box_s" type="text" name="keyword" id="keywords" data-i18n-placeholder="search-placeholder" placeholder="请输入关键词" />
+                            <input class="btn_s" type="submit" data-i18n="search-btn" value="搜索" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <p class="sy_name">鲁金钿（导师）</p>
-        <p class="sy_2_info">
-            　　鲁金钿老师，吉首大学网络空间安全相关方向导师。研究兴趣包括（按实际修改）：
-            网络攻防、漏洞挖掘与利用分析、入侵检测、恶意代码分析、数据安全与隐私保护等。
-            （提示：这里建议你补充老师的职称/邮箱/代表成果等真实信息，网站会更正式。）
-        </p>
+    <!-- 侧边导航（移动端） -->
+    <div class="opacity2" id="opacity2"></div>
+    <div class="model-leftnav" id="leftNav">
+        <h1 class="model-leftnav-top"><span data-i18n="nav-menu">导航菜单</span></h1>
+        <div class="model-leftnav-main">
+            <ul class="nnav">
+                <li><a href="index.html" class="ce" data-i18n="nav-home">首页</a></li>
+                <li><a href="intro.html" class="ce" data-i18n="nav-intro">课题组简介</a></li>
+                <li><a href="research.html" class="ce" data-i18n="nav-research">科研进展</a></li>
+                <li><a href="team.html" class="ce" data-i18n="nav-team">成员介绍</a></li>
+                <li><a href="about.html" class="ce" data-i18n="nav-about">关于我们</a></li>
+            </ul>
+        </div>
+    </div>
 
-        <p class="sy_name">研究生 / 本科生（示例占位）</p>
-        <p class="sy_2_info">
-            　　学生A：研究方向（如：入侵检测/流量分析/溯源取证等）<br>
-            　　学生B：研究方向（如：漏洞挖掘/Web安全/安全评估等）<br>
-            　　学生C：研究方向（如：数据安全/隐私保护/AI安全等）<br>
-            　　（你可以继续往下复制“sy_name + sy_2_info”两行来添加更多成员。）
-        </p>
-    </section>
-</section>
+    <!-- 页面标题 -->
+    <div class="page-header">
+        <div class="container">
+            <h1 data-i18n="nav-intro">课题组简介</h1>
+            <div class="breadcrumb">
+                <a href="index.html" data-i18n="nav-home">首页</a> >> <span data-i18n="nav-intro">课题组简介</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主体内容 -->
+    <div class="page-content">
+        <div class="container">
+            <section class="content-section">
+                <h2 data-i18n="intro-research-area">研究领域</h2>
+                <div class="sy_1">
+                    <p class="sy_1_info" data-i18n="intro-area-text1">
+                        本课题组面向国家网络空间安全重大战略需求，围绕"安全可信、攻防对抗、数据保护与治理"开展研究与人才培养，
+                        致力于提升复杂网络与信息系统的安全防护能力与风险治理水平。研究工作强调理论方法与工程实践结合，
+                        通过构建可验证的安全机制、可解释的检测模型与可落地的防护体系，为政企单位、关键基础设施与新型应用场景提供技术支撑。
+                    </p>
+                    <p class="sy_1_info" data-i18n="intro-area-text2">
+                        Our group focuses on cybersecurity research and education, aiming at building secure and trustworthy
+                        systems for real-world applications. We work on both fundamental theories and practical techniques,
+                        including vulnerability analysis, attack detection and defense, privacy-preserving computation, and
+                        security evaluation of emerging systems.
+                    </p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 data-i18n="intro-research-directions">研究方向</h2>
+                <div class="sy_1">
+                    <ol>
+                        <li class="sy_3_info" data-i18n="direction1">网络攻防与漏洞挖掘：漏洞分析、利用链构造、补丁对比与安全加固。</li>
+                        <li class="sy_3_info" data-i18n="direction2">恶意代码与入侵检测：恶意样本分析、流量检测、日志审计与溯源取证。</li>
+                        <li class="sy_3_info" data-i18n="direction3">密码学与隐私保护：数据脱敏、访问控制、隐私计算与安全多方协作。</li>
+                        <li class="sy_3_info" data-i18n="direction4">Web/应用安全：渗透测试、供应链安全、应用安全评估与防护体系建设。</li>
+                        <li class="sy_3_info" data-i18n="direction5">数据安全与AI安全：对抗样本、模型安全、内容安全与风险治理。</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 data-i18n="intro-team-members">团队成员</h2>
+                <div class="sy_1">
+                    <p class="sy_name" data-i18n="teacher-lu">鲁金钿</p>
+                    <p class="sy_2_info" data-i18n="teacher-lu-info">
+                        鲁金钿老师，男，中共党员，工学博士，硕士生导师；于中山大学计算机学院获得工学博士学位。现主要从事云数据安全和隐私保护、边云协同、信息流控制、访问控制、安全协议及形式化分析（主要为模型检测）等方面研究工作。先后在Computers & Security，IEEE Internet of Things Journal，IEEE Transactions on Network and Service Management，Transactions on Emerging Telecommunications Technologies，电子与信息学报，通信学报等国际（内）SCI/EI期刊及会议发表学术论文20多篇；参与国家重点研发计划、国家自然科学基金面上项目、广东省重点领域研究计划等项目多项；申请发明专利6项，获授权4项。担任IEEE Transactions on Network and Service Management，Computers & Security，Journal of Systems Architecture，The Journal of Supercomputing 等SCI期刊审稿人。
+                    </p>
+                    <div class="team-link">
+                        <a href="team.html" class="btn-primary" data-i18n="view-all-members">查看所有成员</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <div class="container">
+            <div class="foot_left">
+                <div class="m-link1">
+                    <div class="item">
+                        <span data-i18n="related-links">相关链接:</span>
+                        <ul class="ul-link1">
+                            <li><a href="https://www.nsfc.gov.cn/" target="_blank" data-i18n="nsfc">国家自然科学基金委</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contact">
+                    <span data-i18n="contact-info">单位：吉首大学计算机科学与工程学院 &nbsp;&nbsp;&nbsp;&nbsp; 
+                    地址：湖南省吉首市吉首大学计算机科学与工程学院&nbsp;&nbsp;&nbsp;&nbsp; <br>
+                    邮箱：（请填写邮箱）</span>
+                </div>
+                <div class="copyright">
+                    Copyright © 2025 <span data-i18n="site-name">吉首大学-网络空间安全课题组</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="返回顶部">↑</button>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script src="i18n.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>

@@ -4,386 +4,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>吉首大学网络空间安全课题组</title>
+    <title>首页 - 吉首大学网络空间安全课题组</title>
     <link rel="stylesheet" href="team.css">
 </head>
 
 <body>
-    <header>
-        <img src="png/image.png" alt="课题组LOGO" class="header-img">
-        <h1 class="header-title">吉首大学网络空间安全课题组</h1>
-        <nav class="header-nav">
-            <ul>
-                <li><a href="#synopsis">课题组简介</a></li>
-                <li><a href="#research">科研进展</a></li>
-                <li><a href="#about">关于我们</a></li>
-                <li><a href="#other">一些奇怪的东西</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!-- 顶部轮播（放在 header 下方） -->
-<section class="hero-slider" aria-label="顶部轮播">
-  <div class="slider" id="slider">
-    <div class="peek peek-left" aria-label="上一张预览" role="button" tabindex="0"></div>
-  <div class="peek peek-right" aria-label="下一张预览" role="button" tabindex="0"></div>
-    <div class="slides">
-      <!-- 把图片放到 png/ 目录下，这里用你已有的 1.png / test.png 举例 -->
-      <div class="slide active">
-        <img src="png/1.png" alt="轮播图1">
-        <div class="caption">
-          <h2>攻防对抗与漏洞挖掘</h2>
-          <p>面向真实场景的安全研究与实践训练</p>
+    <!-- 顶部欢迎栏 -->
+    <div class="topper">
+        <div class="top">
+            <div class="container">
+                <div class="welcome" data-i18n="welcome">欢迎光临吉首大学网络空间安全课题组网站</div>
+                <div class="top_tel">
+                    <span data-i18n="language">语言选择：</span>
+                    <a href="#" id="langZh" class="lang-switch active">中文</a>&nbsp;|&nbsp;
+                    <a href="#" id="langEn" class="lang-switch">English</a>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="slide">
-        <img src="png/test.png" alt="轮播图2">
-        <div class="caption">
-          <h2>数据安全与隐私保护</h2>
-          <p>访问控制 / 信息流控制 / 隐私计算</p>
+        
+        <!-- 页眉导航 -->
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="png/image.png" alt="课题组LOGO">
+                        <span class="header-title" data-i18n="site-title">吉首大学网络空间安全课题组</span>
+                    </a>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li class="on"><a href="index.html" data-i18n="nav-home">首页</a></li>
+                        <li><a href="intro.html" data-i18n="nav-intro">课题组简介</a></li>
+                        <li><a href="research.html" data-i18n="nav-research">科研进展</a></li>
+                        <li><a href="team.html" data-i18n="nav-team">成员介绍</a></li>
+                        <li><a href="about.html" data-i18n="nav-about">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="search_btnn" id="searchBtn"></div>
+                <div class="model-navbtn" id="navBtn"></div>
+            </div>
+            <!-- 搜索区域 -->
+            <div class="search_area" id="searchArea">
+                <div class="container">
+                    <div class="search_close" id="searchClose">×</div>
+                    <div class="search_form">
+                        <form method="get" action="#">
+                            <input class="box_s" type="text" name="keyword" id="keywords" data-i18n-placeholder="search-placeholder" placeholder="请输入关键词" />
+                            <input class="btn_s" type="submit" data-i18n="search-btn" value="搜索" />
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="slide">
-        <img src="png/test.png" alt="轮播图3">
-        <div class="caption">
-          <h2>云数据安全与边云协同</h2>
-          <p>安全协议、形式化分析与系统安全评估</p>
-        </div>
-      </div>
     </div>
 
-    <button class="nav prev" aria-label="上一张">‹</button>
-  <button class="nav next" aria-label="下一张">›</button>
-  <div class="dots" aria-label="轮播指示点"></div>
-  </div>
-</section>
+    <!-- 侧边导航（移动端） -->
+    <div class="opacity2" id="opacity2"></div>
+    <div class="model-leftnav" id="leftNav">
+        <h1 class="model-leftnav-top"><span data-i18n="nav-menu">导航菜单</span></h1>
+        <div class="model-leftnav-main">
+            <ul class="nnav">
+                <li><a href="index.html" class="ce" data-i18n="nav-home">首页</a></li>
+                <li><a href="intro.html" class="ce" data-i18n="nav-intro">课题组简介</a></li>
+                <li><a href="research.html" class="ce" data-i18n="nav-research">科研进展</a></li>
+                <li><a href="team.html" class="ce" data-i18n="nav-team">成员介绍</a></li>
+                <li><a href="about.html" class="ce" data-i18n="nav-about">关于我们</a></li>
+            </ul>
+        </div>
+    </div>
 
-    <main>
-        <!-- 课题组简介 -->
-        <section class="intro">
-            <h2 id="synopsis">课题组简介</h2>
-
-            <section class="sy_1">
-                <h3 class="sy_1_title">研究领域</h3>
-                <p class="sy_1_info">
-                    　　本课题组面向国家网络空间安全重大战略需求，围绕“安全可信、攻防对抗、数据保护与治理”开展研究与人才培养，
-                    致力于提升复杂网络与信息系统的安全防护能力与风险治理水平。研究工作强调理论方法与工程实践结合，
-                    通过构建可验证的安全机制、可解释的检测模型与可落地的防护体系，为政企单位、关键基础设施与新型应用场景提供技术支撑。
-                </p>
-                <p class="sy_1_info">
-                    　　Our group focuses on cybersecurity research and education, aiming at building secure and trustworthy
-                    systems for real-world applications. We work on both fundamental theories and practical techniques,
-                    including vulnerability analysis, attack detection and defense, privacy-preserving computation, and
-                    security evaluation of emerging systems.
-                </p>
-            </section>
-
-            <section class="sy_1">
-                <h3 class="sy_1_title">研究方向</h3>
-                <ol>
-                    <li class="sy_3_info">网络攻防与漏洞挖掘：漏洞分析、利用链构造、补丁对比与安全加固。</li>
-                    <li class="sy_3_info">恶意代码与入侵检测：恶意样本分析、流量检测、日志审计与溯源取证。</li>
-                    <li class="sy_3_info">密码学与隐私保护：数据脱敏、访问控制、隐私计算与安全多方协作（可按实际调整）。</li>
-                    <li class="sy_3_info">Web/应用安全：渗透测试、供应链安全、应用安全评估与防护体系建设。</li>
-                    <li class="sy_3_info">数据安全与AI安全（可选）：对抗样本、模型安全、内容安全与风险治理。</li>
-                </ol>
-                <p class="sy_1_info">
-                    　　（提示：如果你们课题组方向更具体，比如“工业互联网安全/物联网安全/区块链安全/密码协议”等，把上面的条目替换成真实方向即可。）
-                </p>
-            </section>
-
-            <section class="sy_1">
-                <h3 class="sy_1_title">团队成员</h3>
-
-                <p class="sy_name">鲁金钿</p>
-                <p class="sy_2_info">
-                    　　鲁金钿老师，男，中共党员，工学博士，硕士生导师；于中山大学计算机学院获得工学博士学位。现主要从事云数据安全和隐私保护、边云协同、信息流控制、访问控制、安全协议及形式化分析（主要为模型检测）等方面研究工作。先后在Computers & Security，IEEE Internet of Things Journal，IEEE Transactions on Network and Service Management，Transactions on Emerging Telecommunications Technologies，电子与信息学报，通信学报等国际（内）SCI/EI期刊及会议发表学术论文20多篇；参与国家重点研发计划、国家自然科学基金面上项目、广东省重点领域研究计划等项目多项；申请发明专利6项，获授权4项。担任IEEE Transactions on Network and Service Management，Computers & Security，Journal of Systems Architecture，The Journal of Supercomputing 等SCI期刊审稿人。
-                </p>
-
-                <p class="sy_name">团队成员（示例）</p>
-                <p class="sy_2_info">
-                    A：请在此处按实际补充成员姓名、年级、研究方向与承担工作（也可以改成列表形式）。
-                    </p>
-                    <p class="sy_2_info">
-                    A：请在此处按实际补充成员姓名、年级、研究方向与承担工作（也可以改成列表形式）。
-                    </p>
-                    <p class="sy_2_info">
-                    A：请在此处按实际补充成员姓名、年级、研究方向与承担工作（也可以改成列表形式）。
-                    </p>
-                    <p class="sy_2_info">
-                    A：请在此处按实际补充成员姓名、年级、研究方向与承担工作（也可以改成列表形式）。
-                    </p>
-                    <p class="sy_2_info">
-                    A：请在此处按实际补充成员姓名、年级、研究方向与承担工作（也可以改成列表形式）。
-                    </p>
-                </p>
-            </section>
-        </section>
-
-        <!-- 科研进展 -->
-        <section class="research">
-            <h2 id="research">科研进展</h2>
-
-            <section class="sy_1">
-                <h3 class="sy_1_title">发表论文</h3>
-                <ol>
-                    <li class="sy_3_info">
-                        （示例）Lu J., Zhang X., et al. A Lightweight Intrusion Detection Method for Encrypted Traffic.
-                        <strong>Journal/Conference Name</strong>, 2025.
-                        <em>（请替换为真实论文条目）</em>
-                    </li>
-                    <li class="sy_3_info">
-                        （示例）Li Y., Lu J.*, et al. Vulnerability Discovery via Patch Analysis and Code Similarity.
-                        <strong>Journal/Conference Name</strong>, 2024.
-                        <em>（请替换为真实论文条目）</em>
-                    </li>
-                    <li class="sy_3_info">
-                        （提示）你可以按“作者-标题-期刊/会议-年份-卷(期)-页码/DOI”的格式逐条列出。
-                    </li>
-                </ol>
-            </section>
-
-            <section class="sy_1">
-                <h3 class="sy_1_title">科研项目 / 竞赛成果</h3>
-                <ol>
-                    <li class="sy_5_info">（示例）省部级项目：面向关键基础设施的安全监测与预警关键技术研究（2024-2027）</li>
-                    <li class="sy_5_info">（示例）横向合作：某单位安全评估与渗透测试服务（2023-2024）</li>
-                    <li class="sy_5_info">（示例）竞赛/平台：CTF/攻防演练获奖或平台建设（请替换为真实信息）</li>
-                </ol>
-            </section>
-
-            <section class="sy_1">
-                <h3 class="sy_1_title">获奖荣誉</h3>
-                <ol>
-                    <li class="sy_5_info">（示例）优秀指导教师 / 科研奖励 / 学术奖励（请替换为真实信息）</li>
-                    <li class="sy_5_info">（示例）学生竞赛获奖：国家级/省级网络安全竞赛奖项（请替换为真实信息）</li>
-                </ol>
-            </section>
-        </section>
-
-        <!-- 关于我们 -->
-        <section class="research">
-            <h2 id="about">关于我们</h2>
-
-            <section class="sy_1">
-                <h3 class="sy_1_title">科研环境</h3>
-                <p class="sy_1_info">
-                    　　课题组具备网络空间安全实验环境与攻防训练平台，支持漏洞复现、渗透测试、流量采集分析、日志审计与溯源取证等实验。
-                    可根据实际补充：服务器/虚拟化平台、流量镜像与分析系统、样本库、自动化测试工具链、CTF训练平台等。
-                </p>
-
-                <!-- 如果你想保留图片展示，就把图片换成网络安全相关图片（平台界面、会议合照、实验室环境等） -->
-                <div class="image-kyhj1">
-                    <div class="image-item-kyhj">
-                        <img src="png/test.png" alt="图片1">
-                        <p class="image-caption-kyhj">攻防训练平台（示例）</p>
-                    </div>
-                    <div class="image-item-kyhj">
-                        <img src="png/test.png" alt="图片2">
-                        <p class="image-caption-kyhj">安全实验环境（示例）</p>
-                    </div>
-                    <div class="image-item-kyhj">
-                        <img src="png/test.png" alt="图片3">
-                        <p class="image-caption-kyhj">流量分析与检测（示例）</p>
-                    </div>
-                    <div class="image-item-kyhj">
-                        <img src="png/test.png" alt="图片4">
-                        <p class="image-caption-kyhj">漏洞分析与复现（示例）</p>
+    <!-- 轮播图 -->
+    <section class="hero-slider" id="model_banner">
+        <div class="slider" id="slider">
+            <div class="slides">
+                <div class="slide active">
+                    <img src="png/image copy.png" alt="轮播图1">
+                    <div class="caption">
+                        <h2 data-i18n="slide1-title">攻防对抗与漏洞挖掘</h2>
+                        <p data-i18n="slide1-desc">面向真实场景的安全研究与实践训练</p>
                     </div>
                 </div>
-            </section>
-
-            <section class="sy_1">
-                <h3 class="sy_1_title">组内活动</h3>
-                <p class="sy_1_info">
-                    　　课题组定期开展读书报告、论文分享、技术讨论与攻防训练，积极参加学术会议与网络安全竞赛，鼓励学生在实践中提升能力。
-                </p>
-
-                <div class="image-kyhj1">
-                    <div class="image-item-kyhj-2">
-                        <img src="png/test.png" alt="活动图片1">
-                        <p class="image-caption-kyhj">组会交流（示例）</p>
-                    </div>
-                    <div class="image-item-kyhj-2">
-                        <img src="png/test.png" alt="活动图片2">
-                        <p class="image-caption-kyhj">竞赛训练（示例）</p>
-                    </div>
-                    <div class="image-item-kyhj-2">
-                        <img src="png/test.png" alt="活动图片3">
-                        <p class="image-caption-kyhj">学术会议/参会合照（示例）</p>
+                <div class="slide">
+                    <img src="png/Secure and Real-Time Traceable Data Sharing  in Cloud-Assisted IoT.png" alt="轮播图2">
+                    <div class="caption">
+                        <h2 data-i18n="slide2-title">数据安全与隐私保护</h2>
+                        <p data-i18n="slide2-desc">访问控制 / 信息流控制 / 隐私计算</p>
                     </div>
                 </div>
-            </section>
-
-            <section class="sy_1">
-                <h3 class="sy_1_title">联系我们</h3>
-                <p class="call">　　电子邮件：<strong>（请填写鲁金钿老师/课题组邮箱）</strong></p>
-                <p class="call">　　通讯地址：<strong>（请填写吉首大学具体学院/地址/邮编）</strong></p>
-                <p class="call">　　办公室：<strong>（请填写办公室地点）</strong></p>
-            </section>
-        </section>
-        
-
-
-<section class="research">
-    <h2 id="other">未分类实验区</h2>
-
-    <section class="sy_1">
-        <h3 class="sy_1_title">异常现象记录</h3>
-
-        <p class="sy_1_info">
-            本区域用于存放尚未命名、尚未解释、但被观察到真实存在的现象。
-            这些内容可能来源于实验、讨论、灵感、失误，或凌晨三点的突然想法。
-        </p>
-
-        <ul class="sy_3_info">
-            <li>现象 A：系统在无输入条件下产生输出。</li>
-            <li>现象 B：日志完整，但原因缺失。</li>
-            <li>现象 C：问题在复现时自动消失。</li>
-            <li>现象 D：代码在解释前先运行成功。</li>
-        </ul>
-    </section>
-
-    <section class="sy_1">
-        <h3 class="sy_1_title">视觉证据（未验证）</h3>
-
-        <p class="sy_1_info">
-            下图为一次无法复现的界面状态截图。该状态仅出现一次，
-            目前无法确认是否由用户操作、系统行为或观察者效应引起。
-        </p>
-
-        <div style="text-align: center; margin-top: 20px;">
-            <img src="png/1.png" alt="异常截图"
-                 style="max-width: 60%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-            <p style="margin-top: 10px; font-size: 14px; color: #666;">
-                图 1：异常状态界面（来源未知）
-            </p>
+                <div class="slide">
+                    <img src="png/test.png" alt="轮播图3">
+                    <div class="caption">
+                        <h2 data-i18n="slide3-title">云数据安全与边云协同</h2>
+                        <p data-i18n="slide3-desc">安全协议、形式化分析与系统安全评估</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="png/test.png" alt="轮播图3">
+                    <div class="caption">
+                        <h2 data-i18n="slide3-title">云数据安全与边云协同</h2>
+                        <p data-i18n="slide3-desc">安全协议、形式化分析与系统安全评估</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="png/test.png" alt="轮播图3">
+                    <div class="caption">
+                        <h2 data-i18n="slide3-title">云数据安全与边云协同</h2>
+                        <p data-i18n="slide3-desc">安全协议、形式化分析与系统安全评估</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="png/test.png" alt="轮播图3">
+                    <div class="caption">
+                        <h2 data-i18n="slide3-title">云数据安全与边云协同</h2>
+                        <p data-i18n="slide3-desc">安全协议、形式化分析与系统安全评估</p>
+                    </div>
+                </div>
+            </div>
+            <button class="nav prev" aria-label="上一张">‹</button>
+            <button class="nav next" aria-label="下一张">›</button>
+            <div class="dots" aria-label="轮播指示点"></div>
         </div>
     </section>
 
-    <section class="sy_1">
-        <h3 class="sy_1_title">备注</h3>
+    <!-- 首页简介 -->
+    <div class="home-intro">
+        <div class="container">
+            <div class="intro-content">
+                <h2 data-i18n="home-intro-title">课题组简介</h2>
+                <div class="intro-text">
+                    <p data-i18n="home-intro-text1">
+                        本课题组面向国家网络空间安全重大战略需求，围绕"安全可信、攻防对抗、数据保护与治理"开展研究与人才培养，
+                        致力于提升复杂网络与信息系统的安全防护能力与风险治理水平。
+                    </p>
+                    <p data-i18n="home-intro-text2">
+                        研究工作强调理论方法与工程实践结合，通过构建可验证的安全机制、可解释的检测模型与可落地的防护体系，
+                        为政企单位、关键基础设施与新型应用场景提供技术支撑。
+                    </p>
+                </div>
+                <div class="intro-buttons">
+                    <a href="intro.html" class="btn-primary" data-i18n="more-info">了解更多</a>
+                    <a href="team.html" class="btn-secondary" data-i18n="view-team">查看团队</a>
+                </div>
+            </div>
+            
+            <!-- 研究方向卡片 -->
+            <div class="research-cards">
+                <div class="research-card">
+                    <div class="card-icon">🔒</div>
+                    <h3 data-i18n="research-card1-title">网络攻防</h3>
+                    <p data-i18n="research-card1-desc">漏洞分析、利用链构造、安全加固</p>
+                </div>
+                <div class="research-card">
+                    <div class="card-icon">🛡️</div>
+                    <h3 data-i18n="research-card2-title">入侵检测</h3>
+                    <p data-i18n="research-card2-desc">恶意样本分析、流量检测、溯源取证</p>
+                </div>
+                <div class="research-card">
+                    <div class="card-icon">🔐</div>
+                    <h3 data-i18n="research-card3-title">隐私保护</h3>
+                    <p data-i18n="research-card3-desc">数据脱敏、访问控制、隐私计算</p>
+                </div>
+                <div class="research-card">
+                    <div class="card-icon">🌐</div>
+                    <h3 data-i18n="research-card4-title">应用安全</h3>
+                    <p data-i18n="research-card4-desc">渗透测试、安全评估、防护体系</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <p class="sy_1_info">
-            本模块不保证逻辑自洽性，也不承诺最终结论。
-            若你能理解这里的内容，说明你已经习惯了科研与工程的真实状态。
-        </p>
-    </section>
-</section>
+    <!-- 页脚 -->
+    <div class="footer">
+        <div class="container">
+            <div class="foot_left">
+                <div class="m-link1">
+                    <div class="item">
+                        <span data-i18n="related-links">相关链接:</span>
+                        <ul class="ul-link1">
+                            <li><a href="https://www.nsfc.gov.cn/" target="_blank" data-i18n="nsfc">国家自然科学基金委</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contact">
+                    <span data-i18n="contact-info">单位：吉首大学计算机科学与工程学院 &nbsp;&nbsp;&nbsp;&nbsp; 
+                    地址：湖南省吉首市吉首大学计算机科学与工程学院&nbsp;&nbsp;&nbsp;&nbsp; <br>
+                    邮箱：（请填写邮箱）</span>
+                </div>
+                <div class="copyright">
+                    Copyright © 2025 <span data-i18n="site-name">吉首大学-网络空间安全课题组</span>
+                    <p>
+                        <span data-i18n="visit-count">本站访问量：</span><span id="busuanzi_value_site_pv"></span> <span data-i18n="times">次</span> | 
+                        <span data-i18n="visitor-count">访客数：</span><span id="busuanzi_value_site_uv"></span> <span data-i18n="people">人</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" aria-label="返回顶部">↑</button>
 
-
-
-    </main>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  <footer>
-    <p>
-        本站访问量：
-        <span id="busuanzi_value_site_pv"></span> 次 |
-        访客数：
-        <span id="busuanzi_value_site_uv"></span> 人
-    </p>
-    <p>版权所有 &copy; 2025 吉首大学-网络空间安全课题组</p>
-</footer>
-
-<script>
-  (function () {
-    const slider = document.getElementById('slider');
-    if (!slider) return;
-
-    const slides = Array.from(slider.querySelectorAll('.slide'));
-    const dotsWrap = slider.querySelector('.dots');
-    const prevBtn = slider.querySelector('.prev');
-    const nextBtn = slider.querySelector('.next');
-const peekLeft = slider.querySelector('.peek-left');
-const peekRight = slider.querySelector('.peek-right');
-
-    let index = 0;
-    let timer = null;
-    const interval = 4500;
-
-    // 生成 dots
-    const dots = slides.map((_, i) => {
-      const d = document.createElement('button');
-      d.className = 'dot' + (i === 0 ? ' active' : '');
-      d.type = 'button';
-      d.setAttribute('aria-label', `跳转到第 ${i + 1} 张`);
-      d.addEventListener('click', () => go(i));
-      dotsWrap.appendChild(d);
-      return d;
-    });
-
-function render() {
-  const prevIndex = (index - 1 + slides.length) % slides.length;
-  const nextIndex = (index + 1) % slides.length;
-
-  slides.forEach((s, i) => {
-    s.classList.toggle('active', i === index);
-  });
-
-  dots.forEach((d, i) => d.classList.toggle('active', i === index));
-
-  // 更新左右预览背景图
-  const prevImg = slides[prevIndex].querySelector('img')?.src;
-  const nextImg = slides[nextIndex].querySelector('img')?.src;
-
-  if (peekLeft && prevImg) peekLeft.style.backgroundImage = `url("${prevImg}")`;
-  if (peekRight && nextImg) peekRight.style.backgroundImage = `url("${nextImg}")`;
-}
-
-
-
-
-    function go(i) {
-      index = (i + slides.length) % slides.length;
-      render();
-      restart();
-    }
-
-    function next() { go(index + 1); }
-    function prev() { go(index - 1); }
-
-    function start() {
-      timer = setInterval(next, interval);
-    }
-
-    function stop() {
-      if (timer) clearInterval(timer);
-      timer = null;
-    }
-
-    function restart() {
-      stop();
-      start();
-    }
-
-    nextBtn.addEventListener('click', next);
-    prevBtn.addEventListener('click', prev);
-if (peekLeft) peekLeft.addEventListener('click', prev);
-if (peekRight) peekRight.addEventListener('click', next);
-function bindEnter(el, fn){
-  if(!el) return;
-  el.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') fn(); });
-}
-bindEnter(peekLeft, prev);
-bindEnter(peekRight, next);
-
-    // 鼠标悬停暂停，移开继续（更像“流行站点”）
-    slider.addEventListener('mouseenter', stop);
-    slider.addEventListener('mouseleave', start);
-
-    // 键盘左右切换
-    slider.setAttribute('tabindex', '0');
-    slider.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') prev();
-      if (e.key === 'ArrowRight') next();
-    });
-
-    render();
-    start();
-  })();
-</script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script src="i18n.js"></script>
+    <script src="common.js"></script>
+</body>
 
 </html>
