@@ -21,6 +21,43 @@
             </ul>
         </nav>
     </header>
+    <!-- 顶部轮播（放在 header 下方） -->
+<section class="hero-slider" aria-label="顶部轮播">
+  <div class="slider" id="slider">
+    <div class="peek peek-left" aria-label="上一张预览" role="button" tabindex="0"></div>
+  <div class="peek peek-right" aria-label="下一张预览" role="button" tabindex="0"></div>
+    <div class="slides">
+      <!-- 把图片放到 png/ 目录下，这里用你已有的 1.png / test.png 举例 -->
+      <div class="slide active">
+        <img src="png/1.png" alt="轮播图1">
+        <div class="caption">
+          <h2>攻防对抗与漏洞挖掘</h2>
+          <p>面向真实场景的安全研究与实践训练</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="png/test.png" alt="轮播图2">
+        <div class="caption">
+          <h2>数据安全与隐私保护</h2>
+          <p>访问控制 / 信息流控制 / 隐私计算</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="png/test.png" alt="轮播图3">
+        <div class="caption">
+          <h2>云数据安全与边云协同</h2>
+          <p>安全协议、形式化分析与系统安全评估</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="nav prev" aria-label="上一张">‹</button>
+  <button class="nav next" aria-label="下一张">›</button>
+  <div class="dots" aria-label="轮播指示点"></div>
+  </div>
+</section>
 
     <main>
         <!-- 课题组简介 -->
@@ -239,10 +276,114 @@
 
 
     </main>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-    <footer>
-        <p>版权所有 &copy; 2025 吉首大学-网络空间安全课题组</p>
-    </footer>
-</body>
+  <footer>
+    <p>
+        本站访问量：
+        <span id="busuanzi_value_site_pv"></span> 次 |
+        访客数：
+        <span id="busuanzi_value_site_uv"></span> 人
+    </p>
+    <p>版权所有 &copy; 2025 吉首大学-网络空间安全课题组</p>
+</footer>
+
+<script>
+  (function () {
+    const slider = document.getElementById('slider');
+    if (!slider) return;
+
+    const slides = Array.from(slider.querySelectorAll('.slide'));
+    const dotsWrap = slider.querySelector('.dots');
+    const prevBtn = slider.querySelector('.prev');
+    const nextBtn = slider.querySelector('.next');
+const peekLeft = slider.querySelector('.peek-left');
+const peekRight = slider.querySelector('.peek-right');
+
+    let index = 0;
+    let timer = null;
+    const interval = 4500;
+
+    // 生成 dots
+    const dots = slides.map((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.type = 'button';
+      d.setAttribute('aria-label', `跳转到第 ${i + 1} 张`);
+      d.addEventListener('click', () => go(i));
+      dotsWrap.appendChild(d);
+      return d;
+    });
+
+function render() {
+  const prevIndex = (index - 1 + slides.length) % slides.length;
+  const nextIndex = (index + 1) % slides.length;
+
+  slides.forEach((s, i) => {
+    s.classList.toggle('active', i === index);
+  });
+
+  dots.forEach((d, i) => d.classList.toggle('active', i === index));
+
+  // 更新左右预览背景图
+  const prevImg = slides[prevIndex].querySelector('img')?.src;
+  const nextImg = slides[nextIndex].querySelector('img')?.src;
+
+  if (peekLeft && prevImg) peekLeft.style.backgroundImage = `url("${prevImg}")`;
+  if (peekRight && nextImg) peekRight.style.backgroundImage = `url("${nextImg}")`;
+}
+
+
+
+
+    function go(i) {
+      index = (i + slides.length) % slides.length;
+      render();
+      restart();
+    }
+
+    function next() { go(index + 1); }
+    function prev() { go(index - 1); }
+
+    function start() {
+      timer = setInterval(next, interval);
+    }
+
+    function stop() {
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+
+    function restart() {
+      stop();
+      start();
+    }
+
+    nextBtn.addEventListener('click', next);
+    prevBtn.addEventListener('click', prev);
+if (peekLeft) peekLeft.addEventListener('click', prev);
+if (peekRight) peekRight.addEventListener('click', next);
+function bindEnter(el, fn){
+  if(!el) return;
+  el.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') fn(); });
+}
+bindEnter(peekLeft, prev);
+bindEnter(peekRight, next);
+
+    // 鼠标悬停暂停，移开继续（更像“流行站点”）
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+
+    // 键盘左右切换
+    slider.setAttribute('tabindex', '0');
+    slider.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+
+    render();
+    start();
+  })();
+</script>
 
 </html>

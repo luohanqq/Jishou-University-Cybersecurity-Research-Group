@@ -319,3 +319,224 @@ footer {
         width: 90%;
     }
 }
+
+/* ===== 顶部轮播 Hero Slider ===== */
+.hero-slider{
+  width: 100%;
+  padding: 18px 0 8px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(8px);
+}
+
+.slider{
+  position: relative;
+  width: min(1200px, 92vw);
+  height: clamp(220px, 38vh, 420px);
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: visible;   /* ★允许左右预览露出来 */
+  box-shadow: 0 14px 35px rgba(0,0,0,0.18);
+}
+
+
+.slides{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;   /* ★允许子元素溢出 */
+}
+
+
+
+.slide{
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.03);
+  filter: blur(6px);
+  transition: opacity .7s ease, transform .9s ease, filter .9s ease;
+}
+
+.slide.active{
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+  z-index: 2;
+}
+
+.slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 渐变遮罩，让字更清晰 */
+.slide::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.55), rgba(0,0,0,0.08) 60%, rgba(0,0,0,0.0));
+}
+
+.caption{
+  position: absolute;
+  left: 24px;
+  bottom: 20px;
+  z-index: 3;
+  color: #fff;
+  max-width: 70%;
+  text-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.caption h2{
+  margin: 0 0 6px 0;
+  font-size: clamp(18px, 2.4vw, 30px);
+  letter-spacing: 1px;
+}
+
+.caption p{
+  margin: 0;
+  opacity: .95;
+  font-size: clamp(12px, 1.4vw, 16px);
+}
+
+/* 左右按钮 */
+.nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 28px;
+  line-height: 44px;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(6px);
+  transition: transform .15s ease, background .2s ease;
+}
+
+.nav:hover{
+  background: rgba(0,0,0,0.5);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.nav.prev{ left: 14px; }
+.nav.next{ right: 14px; }
+
+/* 圆点 */
+.dots{
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.18);
+  backdrop-filter: blur(6px);
+}
+
+.dot{
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, width .2s ease;
+}
+
+.dot.active{
+  width: 22px;
+  background: rgba(255,255,255,0.9);
+  transform: scale(1.05);
+}
+
+/* 小屏适配 */
+@media (max-width: 600px){
+  .caption{ max-width: 86%; left: 16px; bottom: 16px; }
+  .nav{ width: 40px; height: 40px; font-size: 26px; line-height: 40px; }
+}
+/* ===== 轮播左右预览效果 ===== */
+.slide.prev,
+.slide.next {
+  opacity: 0.55;
+  filter: blur(4px) brightness(0.7);
+  transform: scale(0.88);
+  z-index: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* 左侧预览 */
+.slide.prev {
+  transform: translateX(-38%) scale(0.86);
+}
+
+.slide.next {
+  transform: translateX(38%) scale(0.86);
+}
+
+
+/* 中间主图 */
+.slide.active {
+  opacity: 1;
+  filter: none;
+  transform: translateX(0) scale(1);
+  z-index: 3;
+}
+
+/* 防止 slide 叠加错乱 */
+.slide {
+  transition:
+    transform 0.8s cubic-bezier(.4,0,.2,1),
+    opacity 0.6s ease,
+    filter 0.6s ease;
+}
+/* ===== 左右预览 Peek（不会被裁剪） ===== */
+.peek{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(140px, 18vw, 240px);
+  height: calc(100% - 48px);
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+  opacity: 0.9;
+  z-index: 2;
+  cursor: pointer;
+  filter: blur(0.6px) brightness(0.72) saturate(1.1);
+  transition: transform .2s ease, filter .2s ease, opacity .2s ease;
+}
+
+/* 让预览更“卡片化”一点 */
+.peek::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:16px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0.08));
+}
+
+.peek-left{ left: -260px; }
+.peek-right{ right: -260px; }
+
+.peek:hover{
+  transform: translateY(-50%) scale(1.04);
+  filter: blur(0px) brightness(0.82) saturate(1.15);
+  opacity: 1;
+}
+
+/* 小屏幕自动隐藏预览（避免挤） */
+@media (max-width: 900px){
+  .peek{ display:none; }
+}
